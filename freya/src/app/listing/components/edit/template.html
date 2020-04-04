@@ -1,0 +1,36 @@
+<div id='itsy-listing-edit'>
+
+    <section>
+        <breadcrumb crumbs='$ctrl.crumbs'></breadcrumb>
+    </section>
+
+    <section>
+        <form name='form' novalidate>
+
+            <section class='row'>
+                <div class='col-sm-4 col-sm-push-8'>
+                    <dropzone pending='$ctrl.pending' photos='$ctrl.listing.photos' main-photo-index='$ctrl.listing.mainPhotoIndex'></dropzone>
+                    <advertising></advertising>
+                </div>
+                <div class='col-sm-8 col-sm-pull-4'>
+                    <formly-form model='$ctrl.listing' fields='$ctrl.fields' form='$ctrl.listingForm'></formly-form>
+                </div>
+            </section>
+
+            <section class='buttons'>
+                <div class='row'>
+                    <div class='col-md-12'>
+                        <div class='text-danger' ng-messages='form.$error'>
+                            <p ng-message='min'>Some of these values are too small.</p>
+                            <p ng-message='required'>You are missing some required fields.</p>
+                        </div>
+                    </div>
+                    <div class='col-sm-3 col-sm-push-9'> <button type='submit' ng-disabled='form.listingForm.$invalid || $ctrl.pending' ng-click='$ctrl.editListing()' class='btn btn-success btn-block'><i class='ion-archive'> </i> Save</button> </div>
+                    <div class='col-sm-3 col-sm-pull-3'>
+                    <a ng-disabled='$ctrl.pending' ui-sref='listing.browse' class='btn btn-default btn-block'><i class='ion-close'> </i> Cancel</a> </div>
+                    <div class='col-sm-3 col-sm-pull-3'> <a ng-disabled='$ctrl.pending' ng-click='$ctrl.deleteListing()' class='btn btn-danger btn-block m-b-xs'><i class='ion-trash-a'> </i> Delete</a> </div>
+                </div>
+            </section>
+        </form>
+    </section>
+</div>

@@ -1,0 +1,33 @@
+<div id='itsy-navbar' ng-class='{"simple" : $ctrl.simple}'>
+    <nav class='navbar navbar-default navbar-fixed-top animate' role='navigation' ng-hide='!$ctrl.isShow'>
+        <div class='container'>
+            <div class='row'>
+                <div class='col-xs-12'>
+                    <div class='navbar-header'> <button class='navbar-toggle collapsed' ng-click='$ctrl.isCollapsed = !$ctrl.isCollapsed' href='#'>
+              <i class='ion-navicon'></i>
+            </button> <a ng-if='!$ctrl.simple' class='navbar-brand' ui-sref='home'> <img ng-src='{{$ctrl.logo}}' alt='logo' /> </a> </div>
+                    <div class='navbar-collapse collapse' id='navbar' uib-collapse='$ctrl.isCollapsed'>
+                        <form class='navbar-form navbar-right'>
+                            <search-bar show='$ctrl.isShowSearchBar'></search-bar>
+                        </form>
+                        <ul class='nav navbar-nav' ng-class='$ctrl.simple ? "navbar-right" : "navbar-right"'>
+                            <li> <a ng-click='$ctrl.collapse()' ui-sref='directory.browse'>Directory</a> </li>
+                            <li> <a ng-click='$ctrl.collapse()' ui-sref='listing.browse'>Listings</a> </li>
+                            <li ng-if='$root.isAuthenticated'> <a ng-click='$ctrl.collapse()' ui-sref='listing.add'>Sell</a> </li>
+                            <li ng-if='!$root.isAuthenticated'> <a ng-click='$root.AuthService.login(); $ctrl.collapse()' ng-switch='$root.AuthService.isLoginLoading'>
+                  <span ng-switch-when='false'>Login/Register</span>
+                  <span class='flash' ng-switch-when='true'>Logging In...</span>
+                </a> </li>
+                            <li ng-if='$root.isAuthenticated' uib-dropdown> <a uib-dropdown-toggle> <i class='ion-person'></i> <i class='ion-ios-arrow-down'></i> </a>
+                                <ul class='dropdown-menu'>
+                                    <li> <a ng-click='$ctrl.collapse()' ui-sref='profile.me'> My Profile </a> </li>
+                                    <li> <a ui-sref='home' ng-click='$root.AuthService.logout(); $ctrl.collapse()'> Logout </a> </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>

@@ -1,0 +1,22 @@
+<div id='itsy-dropzone'>
+    <ng-form name='dropzoneForm'>
+        <div class='dropzone' ngf-drop='$ctrl.addPhoto($files, $invalidFiles)' ngf-model-invalid='$ctrl.invalidFiles' ngf-select='$ctrl.addPhoto($files, $invalidFiles)' ngf-drag-over-class='"dropzone-dragover"' ngf-multiple='true' ngf-allow-dir='true' ngf-max-size='20242880'
+            accept='image/*, application/pdf' ngf-pattern='"image/*, application/pdf"'>
+            <h1>Click Or Drop Photo To Upload</h1>
+            <p>Photo size cannot exceed 5MB.</p>
+            <div ng-repeat='invalidFile in invalidFiles'>
+                <p class='text-error' ng-if='invalidFile.$error === "maxSize"'> Your photo is too big, please try a smaller size. </p>
+            </div>
+        </div>
+    </ng-form>
+    <div ngf-no-file-drop> File Drag/Drop is not supported for this browser </div>
+    <ul class='list-unstyled thumbs'>
+        <li ng-repeat='photo in $ctrl.photos'> <a class='thumb' ng-href='{{photo}}' target='_blank'>
+        <img ng-src='{{photo}}' alt='' />
+      </a> <button class='btn btn-danger btn-lg pull-right' ng-click='$ctrl.deletePhoto($index)' type='button'><i class='ion-trash-a'></i></button> <button class='btn btn-info btn-lg pull-right' ng-disabled='$index === $ctrl.mainPhotoIndex' ng-click='$ctrl.setAsMainPhoto($index)'
+                type='button'><i class='ion-star'></i></button> </li>
+        <li ng-repeat='photoToBeUploaded in $ctrl.photosToBeUploaded'>
+            <uib-progressbar class='progress-striped active m-b-md' value='photoToBeUploaded.progress'> <span ng-bind='photoToBeUploaded.name'></span> </uib-progressbar>
+        </li>
+    </ul>
+</div>

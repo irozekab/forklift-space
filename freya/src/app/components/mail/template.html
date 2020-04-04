@@ -1,0 +1,13 @@
+<div id='itsy-mail'>
+    <form novalidate>
+        <formly-form model='$ctrl.mail' fields='$ctrl.fields' form='$ctrl.mailForm' options='$ctrl.options'></formly-form>
+        <div class='buttons'>
+            <div class='row'>
+                <div class='col-sm-4 col-sm-push-8'> <button type='submit' ng-disabled='$ctrl.mailForm.$invalid || $ctrl.pending' ng-click='$ctrl.postMail()' class='btn btn-primary btn-block'>
+            <i class='ion-email'> </i>
+            Send
+          </button> </div>
+            </div>
+        </div>
+    </form>
+</div>

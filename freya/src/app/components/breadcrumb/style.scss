@@ -1,0 +1,19 @@
+#itsy-breadcrumb {
+    .page-header {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    #itsy-breadcrumb {
+        .breadcrumb {
+            font-size: small;
+            font-weight: normal;
+            margin-bottom: 12px;
+        }
+        .page-header {
+            display: block;
+            margin-bottom: 40px;
+        }
+    }
+}

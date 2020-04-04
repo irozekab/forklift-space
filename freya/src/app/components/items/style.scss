@@ -1,0 +1,30 @@
+@import '../../../style/_colors';
+@import '../../../style/_mixins';
+$searchResultsCount-margin-bottom: 30px;
+$itemsNotAvailable-margin: 10%;
+#itsy-items {
+    .searchResultsCount {
+        margin-bottom: $searchResultsCount-margin-bottom;
+    }
+    .filters {
+        .title:only-child {
+            display: none;
+        }
+        .filter {
+            background: $color-neutral-lighter;
+            padding: 3px 6px;
+            margin-right: 10px;
+            font-size: 0.8em;
+            color: $color-neutral-dark;
+        }
+    }
+    .btn-group.dropdown {
+        width: 100%;
+        .dropdown-menu {
+            width: 100%;
+        }
+    }
+    .itemsNotAvailable {
+        margin: $itemsNotAvailable-margin;
+    }
+}

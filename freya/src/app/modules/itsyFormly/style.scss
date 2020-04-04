@@ -1,0 +1,21 @@
+$error-message-color: red;
+.formly-field {
+    margin-bottom: 16px;
+}
+
+.itsy-error {
+    color: $error-message-color;
+    font-size: 0.9em;
+    text-align: left;
+    margin-top: 3px;
+}
+
+.form-group {
+    position: relative;
+}
+
+.itsy-loader {
+    position: absolute;
+    right: 6px;
+    top: 10px;
+}

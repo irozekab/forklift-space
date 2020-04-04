@@ -1,0 +1,50 @@
+@import './_helpers';
+@import './_colors';
+@import './_mixins';
+$header-font-family: 'Oswald';
+$body-font-family: 'Poppins';
+$border-radius: 0;
+.auth0-lock {
+    font-family: "Poppins", sans-serif !important;
+    .auth0-lock-widget-container {
+        .auth0-lock-cred-pane {
+            border-radius: $border-radius;
+            .auth0-lock-header {
+                display: none;
+            }
+            .auth0-lock-body-content {
+                padding-top: 25px;
+                .auth0-lock-content {
+                    .auth0-lock-form {
+                        .auth0-lock-last-login-pane {
+                            .auth0-lock-social-button {
+                                border-radius: $border-radius;
+                            }
+                        }
+                        .auth0-lock-tabs-container {
+                            .auth0-lock-tabs {
+                                border-radius: $border-radius;
+                            }
+                        }
+                        .auth-lock-social-buttons-pane {
+                            .auth0-lock-social-button {
+                                border-radius: $border-radius;
+                            }
+                        }
+                        .auth0-lock-input-block {
+                            .auth0-lock-input-wrap {
+                                border-radius: $border-radius;
+                                .auth0-lock-input {
+                                    border-radius: $border-radius;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .auth0-lock-submit {
+                border-radius: $border-radius;
+            }
+        }
+    }
+}

@@ -1,0 +1,28 @@
+$color-hero: #ff6638;
+$a-color: #555;
+$a-active-color: #fff;
+$a-active-background: $color-hero;
+$a-hover-color: #fff;
+$a-hover-background: $color-hero;
+#itsy-pagination {
+    ul.pagination {
+        margin-top: unset;
+        li {
+            a {
+                border: none;
+                border-color: #fff;
+                border-radius: 0;
+                color: $a-color;
+                &:hover {
+                    background: $a-hover-background;
+                    color: $a-hover-color;
+                }
+            }
+            &.active a,
+            a.active {
+                background: $a-active-background;
+                color: $a-active-color;
+            }
+        }
+    }
+}

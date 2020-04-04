@@ -1,0 +1,9 @@
+**/node_modules
+.tmp
+.sass-cache
+.idea
+npm-debug.log
+**/uploads/*
+!**/uploads/.gitignore
+**/logs/*
+!**/logs/.gitignore

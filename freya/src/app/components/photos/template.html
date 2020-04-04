@@ -1,0 +1,8 @@
+<div id='itsy-photos'>
+    <div class='photo'> <img alt='photo' ng-src='{{$ctrl.photo}}'> </div>
+    <ul class='list-inline thumbs' ng-if='$ctrl.photos.length > 1'>
+        <li ng-repeat='photo in $ctrl.photos'> <a class='thumb' ng-click='$ctrl.showPhoto(photo)'>
+        <img ng-src='{{photo}}' alt='' />
+      </a> </li>
+    </ul>
+</div>

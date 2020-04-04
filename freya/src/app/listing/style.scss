@@ -1,0 +1,20 @@
+@import '../../style/_colors';
+$read-dateCreated-font-size: smaller;
+$read-dateCreated-color: $color-neutral-light;
+$read-price-font-size: 24px;
+$read-price-color: $color-hero;
+#itsy-listing-read {
+    .title {
+        margin-top: 0;
+    }
+    .dateCreated {
+        font-size: $read-dateCreated-font-size;
+        color: $read-dateCreated-color;
+        text-transform: uppercase;
+    }
+    .price {
+        font-size: $read-price-font-size;
+        color: $read-price-color;
+        font-weight: bolder;
+    }
+}

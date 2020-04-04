@@ -1,0 +1,2 @@
+require('./style.scss');
+angular.module('app').component('profile.welcome', require('./components/welcome')).component('profile.read', require('./components/read')).component('profile.edit', require('./components/edit')).config(require('./routes'));

@@ -1,0 +1,10 @@
+<div id='itsy-pagination' class='clearfix'>
+    <ul class='pagination-sm pull-left' ng-show='$ctrl.totalPages > 1' uib-pagination items-per-page='$ctrl.perPage' total-items='$ctrl.totalItems' max-size='5' boundary-link-numbers='true' num-pages='$ctrl.totalPages' ng-change='$ctrl.localOnChange()' ng-model='$ctrl.page'></ul>
+    <div class='hidden-xs pull-right' ng-show='$ctrl.totalItems > 10'>
+        <ul class='pagination pagination-sm'>
+            <li ng-class='{ "active": $ctrl.perPage === "10" }'> <a ng-model='$ctrl.perPage' ng-click='$ctrl.localOnChange(true)' uib-btn-radio='10'>10</a> </li>
+            <li ng-class='{ "active": $ctrl.perPage === "25" }'> <a ng-model='$ctrl.perPage' ng-click='$ctrl.localOnChange(true)' uib-btn-radio='25'>25</a> </li>
+            <li ng-class='{ "active": $ctrl.perPage === "50" }'> <a ng-model='$ctrl.perPage' ng-click='$ctrl.localOnChange(true)' uib-btn-radio='50'>50</a> </li>
+        </ul>
+    </div>
+</div>

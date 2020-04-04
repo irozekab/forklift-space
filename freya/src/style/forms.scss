@@ -1,0 +1,150 @@
+@import './_colors';
+@import './_mixins';
+$border-radius: 0;
+$input-border-radius: $border-radius;
+$input-border-color-hover: $color-hero;
+$input-background: $color-neutral-lightest;
+$input-border: unset;
+$input-group-addon-color: $color-black;
+$input-group-addon-background: $color-neutral-lighter;
+$radio-size: 20px;
+$radio-inner-size: 15px;
+$radio-background: $color-neutral-lighter;
+$radio-checked-background: $color-neutral-darker;
+$radio-checked-after-background: $color-white;
+.form-group {
+    input.form-control,
+    select.form-control,
+    textarea.form-control {
+        border: $input-border;
+        box-shadow: unset;
+        background: $input-background;
+        @include border-radius($input-border-radius);
+        &:hover,
+        &:active,
+        &:focus {
+            border-color: $input-border-color-hover;
+            @include box-shadow(inset 0 1px 1px rgba($color-hero, 0.075), 0 0 8px rgba($color-hero, 0.6));
+        }
+    }
+    .control-label {
+        font-weight: 600;
+    }
+    .radio-group {
+        .radio {
+            label {
+                padding-left: $radio-size + 10px;
+                .checked {
+                    background: $radio-background;
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    width: $radio-size;
+                    height: $radio-size;
+                    border-radius: 50%;
+                    @include transition(all 0.5s ease);
+                    &:after {
+                        position: absolute;
+                        content: '';
+                        top: ($radio-size / 2) - ($radio-inner-size / 2);
+                        left: ($radio-size / 2) - ($radio-inner-size / 2);
+                        width: $radio-inner-size;
+                        height: $radio-inner-size;
+                        border-radius: 50%;
+                        background: $radio-background;
+                        @include transition(all 0.5s ease);
+                    }
+                }
+                input[type='radio'] {
+                    display: none;
+                    &:checked+.checked {
+                        background: $radio-checked-background;
+                        &:after {
+                            background: $radio-checked-after-background;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    select.form-control {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-position: right 50%;
+        background-repeat: no-repeat;
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAMCAYAAABSgIzaAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDZFNDEwNjlGNzFEMTFFMkJEQ0VDRTM1N0RCMzMyMkIiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDZFNDEwNkFGNzFEMTFFMkJEQ0VDRTM1N0RCMzMyMkIiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo0NkU0MTA2N0Y3MUQxMUUyQkRDRUNFMzU3REIzMzIyQiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo0NkU0MTA2OEY3MUQxMUUyQkRDRUNFMzU3REIzMzIyQiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PuGsgwQAAAA5SURBVHjaYvz//z8DOYCJgUxAf42MQIzTk0D/M+KzkRGPoQSdykiKJrBGpOhgJFYTWNEIiEeAAAMAzNENEOH+do8AAAAASUVORK5CYII=);
+    }
+    textarea.form-control {
+        resize: none;
+    }
+    .input-group-addon {
+        border: unset;
+        box-shadow: unset;
+        background: $input-group-addon-background;
+        color: $input-group-addon-color;
+        min-width: 50px;
+        @include border-radius($input-border-radius);
+    }
+    [type="checkbox"].form-control {
+        /* label styling */
+        &:not(:checked),
+        &:checked {
+            position: absolute;
+            left: -9999px;
+        }
+        &:not(:checked)+label,
+        &:checked+label {
+            position: relative;
+            padding-left: 1.95em;
+            cursor: pointer;
+            font-weight: normal;
+        }
+        /* outer box styling */
+        &:not(:checked)+label:before,
+        &:checked+label:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 1.25em;
+            height: 1.25em;
+            background: $color-neutral-lighter;
+        }
+        /* check mark styling */
+        &:not(:checked)+label:after,
+        &:checked+label:after {
+            content: '✔';
+            position: absolute;
+            top: .1em;
+            left: .3em;
+            font-size: 1.3em;
+            line-height: 0.8;
+            color: $color-black;
+            @include transition(all 0.2s);
+        }
+        /* check mark changes */
+        &:not(:checked)+label:after {
+            opacity: 0;
+            transform: scale(0);
+        }
+        &:checked+label:after {
+            opacity: 1;
+            transform: scale(1);
+        }
+        /* disabled checkbox */
+        &:disabled {
+            &:not(:checked)+label:before,
+            &:checked+label:before {
+                box-shadow: none;
+                border-color: $color-neutral-light;
+                background-color: $color-neutral-lighter;
+            }
+            &:checked+label:after {
+                color: $color-neutral-light;
+            }
+            &+label {
+                color: $color-neutral-light;
+            }
+        }
+    }
+}

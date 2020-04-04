@@ -1,0 +1,27 @@
+<div id='itsy-listing-add'>
+
+    <section>
+        <breadcrumb crumbs='$ctrl.crumbs'></breadcrumb>
+    </section>
+
+    <section>
+        <form name='form' novalidate>
+            <div class='row clearfix'>
+                <div class='col-sm-4 col-sm-push-8'>
+                    <dropzone pending='$ctrl.pending' photos='$ctrl.listing.photos' main-photo-index='$ctrl.listing.mainPhotoIndex'></dropzone>
+                    <advertising></advertising>
+                </div>
+                <div class='col-sm-8 col-sm-pull-4'>
+                    <formly-form model='$ctrl.listing' fields='$ctrl.fields' form='$ctrl.listingForm'></formly-form>
+                </div>
+            </div>
+            <div class='buttons'>
+                <div class='row'>
+                    <div class='col-sm-3 col-sm-push-9 m-b-xs'> <button type='submit' ng-disabled='$ctrl.listingForm.$invalid || $ctrl.pending' ng-click='$ctrl.addListing()' class='btn btn-success btn-block'><i class='ion-archive'> </i> Save</button> </div>
+                    <div class='col-sm-3 col-sm-pull-3'>
+                    <a ng-disabled='$ctrl.pending' ui-sref='listing.browse' class='btn btn-default btn-block'><i class='ion-close'></i> Cancel</a> </div>
+                </div>
+            </div>
+        </form>
+    </section>
+</div>

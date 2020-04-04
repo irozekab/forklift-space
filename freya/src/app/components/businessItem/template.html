@@ -1,0 +1,9 @@
+<div id='itsy-business-item'>
+    <h3 class='title' ng-bind='$ctrl.model.name'> </h3>
+    <dl> <dt ng-if='$ctrl.model.phone'>Phone</dt>
+        <dd ng-if='$ctrl.model.phone' ng-bind='$ctrl.model.phone'></dd> <dt ng-if='$ctrl.model.fax'>Fax</dt>
+        <dd ng-if='$ctrl.model.fax' ng-bind='$ctrl.model.fax'></dd> <dt ng-if='$ctrl.model.email'>Email</dt>
+        <dd ng-if='$ctrl.model.email'> <a class='decorated' href='mailto:{{$ctrl.model.email}}?Subject=Enquiry' ng-bind='$ctrl.model.email'></a> </dd> <dt>Address</dt>
+        <dd> <span ng-bind='$ctrl.model.address.street'></span> <br /> <span ng-bind='$ctrl.model.address.city'></span>, <span ng-bind='$ctrl.model.address.country'></span> <span ng-bind='$ctrl.model.address.postal'></span> </dd>
+    </dl>
+</div>

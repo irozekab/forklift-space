@@ -1,0 +1,8 @@
+<div id='itsy-searchBar'>
+    <div class='hidden-xs'> <a class='toggle' ng-click='$ctrl.toggleShow()'> <i ng-class='$ctrl.show ? "ion-android-close" : "ion-ios-search-strong"'></i> </a>
+        <div class='form-group animate' ng-if='$ctrl.show'> <input type='text' placeholder='SEARCH...' ng-model='$ctrl.q' on-enter='$ctrl.search($ctrl.q)' class='form-control' /> </div>
+    </div>
+    <div class='visible-xs'>
+        <div class='form-group animate'> <input type='text' placeholder='SEARCH...' ng-model='$ctrl.q' on-enter='$ctrl.search($ctrl.q)' class='form-control' /> </div>
+    </div>
+</div>

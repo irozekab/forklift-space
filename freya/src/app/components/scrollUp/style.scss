@@ -1,0 +1,34 @@
+@import '../../../style/_colors';
+$offset: 12px;
+$padding: 20px;
+$a-background: $color-alt;
+$a-color: $color-neutral-lightest;
+$a-background-hover: $color-alt-darker;
+$a-color-hover: $color-neutral-lightest;
+#itsy-scrollUp {
+    #itsy-scrollUp-anchor {
+        position: fixed;
+        top: 0;
+    }
+    a {
+        position: fixed;
+        bottom: $offset;
+        right: $offset;
+        z-index: 9999;
+        background: $a-background;
+        color: $a-color;
+        border: none;
+        i {
+            display: inline-block;
+            padding: $padding;
+        }
+        &:hover,
+        &:active,
+        &:focus,
+        &:visited {
+            background: $a-background-hover;
+            color: $a-color-hover;
+            cursor: pointer;
+        }
+    }
+}

@@ -1,0 +1,11 @@
+@import '../../../style/_mixins';
+@import '../../../style/_colors';
+$title-margin-bottom: 40px;
+#itsy-business-item {
+    margin-bottom: 40px;
+    .title {
+        margin-bottom: $title-margin-bottom;
+        font-weight: 600;
+        margin-top: 0;
+    }
+}

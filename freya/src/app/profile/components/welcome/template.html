@@ -1,0 +1,37 @@
+<div id='itsy-profile-welcome'>
+
+    <section>
+        <breadcrumb crumbs='$ctrl.crumbs'></breadcrumb>
+        <p class='lead'>Excited to sell some forklifts? Let's start by creating a profile for yourself!</p>
+    </section>
+
+    <section class='row'>
+
+        <section class='col-sm-8'>
+            <form name='form' novalidate>
+                <formly-form model='$ctrl.profile' fields='$ctrl.fields' form='$ctrl.profileForm'></formly-form>
+                <div class='buttons' ng-switch='$ctrl.isPending'>
+                    <div class='row' ng-switch-when='false'>
+                        <div class='col-md-12'>
+                            <div class='text-danger' ng-messages='form.$error' ng-if='form.$dirty'>
+                                <p ng-message='min'>Some of these values are too small.</p>
+                                <p ng-message='required'>You are missing some required fields.</p>
+                            </div>
+                        </div>
+                        <div class='col-sm-3 col-sm-push-9 m-b-xs'> <button type='submit' ng-disabled='!$ctrl.profileForm.$valid || $ctrl.pending' ng-click='$ctrl.editMyProfile()' class='btn btn-success btn-block'>
+								<i class='ion-archive'> </i>
+								Save
+							</button> </div>
+                    </div>
+                    <div ng-switch-when='true'>
+                        <spinner></spinner>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+        <section class='col-sm-4'>
+            <advertising></advertising>
+        </section>
+    </section>
+</div>

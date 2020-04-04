@@ -1,0 +1,56 @@
+<footer id='itsy-foot'>
+    <div class='main'>
+        <div class='container'>
+            <div class='row'>
+                <div class='col-sm-3'>
+
+                    <section>
+                        <h1>about us</h1>
+                        <div class='hr'></div>
+                        <p class='m-t-lg'> Forklift Space, a Singapore based company, whose sole purpose is to provide a dedicated platform for the Material Handling Equipment (“MHE”) industry by providing premier source of pricing benchmark for the pre-owned market and
+                            other related information. We aim to make these information and insights available to users at ease and help users to make sound business decisions and enable the industry to perform with greater transparency and efficiency.
+                            </p>
+                        <p> This paradigm shift, we believe, will allow the MHE industry to scale forward and provide intangible dynamics holistically. </p>
+                        <ul class='list-unstyled'>
+                            <li> <i class='fa fa-map-marker fa-fw'></i> Singapore </li>
+                            <li> <i class='fa fa-envelope fa-fw'></i> <a href='mailto:contact@forklift.space'> contact@forklift.space </a> </li>
+                        </ul>
+                    </section>
+                </div>
+                <div class='col-sm-3'>
+
+                    <section>
+                        <h1>site</h1>
+                        <div class='hr'></div>
+                        <ul class='list-unstyled'>
+                            <li> <a ui-sref='home' class='decorated'> Home </a> </li>
+                            <li> <a ui-sref='directory.browse' class='decorated'> Directory </a> </li>
+                            <li> <a ui-sref='listing.browse' class='decorated'> All Listings </a> </li>
+                            <li ng-if='$root.isAuthenticated'> <a ui-sref='listing.add' class='decorated'> Sell Listing </a> </li>
+                            <li ng-if='!$root.isAuthenticated' ng-switch='$root.AuthService.isLoginLoading'> <a ng-click='$root.AuthService.login()' ng-switch-when='false' class='decorated'> Login/Register </a> <span ng-switch-when='true'> <i class='fa fa-refresh fa-spin fa-fw'> </i> Logging In... </span> </li>
+                            <li ng-if='$root.isAuthenticated'>
+                            <a ui-sref='profile.me' class='decorated'> My Profile </a> </li>
+                            <li ng-if='$root.isAuthenticated'> <a ui-sref='home' ng-click='$root.AuthService.logout()' class='decorated'> Logout </a> </li>
+                        </ul>
+                    </section>
+                </div>
+                <div class='col-sm-6'>
+
+                    <section>
+                        <h1>get in touch</h1>
+                        <div class='hr'></div>
+                        <div class='m-t-lg'>
+                            <mail></mail>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='secondary'>
+        <div class='container'>
+            <div class='pull-left'> &copy; 2016 DeXufto LLP. All rights reserved. </div>
+            <div class='pull-right'> <a ui-sref='termsOfUseAndPrivacyPolicy'> Our Terms of Use & Privacy Policy </a> </div>
+        </div>
+    </div>
+</footer>

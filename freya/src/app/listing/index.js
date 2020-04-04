@@ -1,0 +1,2 @@
+require('./style.scss');
+angular.module('app').component('listing.browse', require('./components/browse')).component('listing.read', require('./components/read')).component('listing.edit', require('./components/edit')).component('listing.add', require('./components/add')).config(require('./routes'));

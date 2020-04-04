@@ -1,0 +1,82 @@
+@import '../../style/_mixins';
+@import '../../style/_colors';
+$title-font-size: 20px;
+#itsy-landing {
+    .landing-block {
+        padding-top: 40px;
+        text-align: center;
+        p.lead {
+            margin-bottom: 60px;
+        }
+    }
+    .hero-block {
+        .img-wrapper {
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+        h1 {
+            position: absolute;
+            color: $color-white;
+            margin-top: 15%;
+            width: 100%;
+            font-size: 6em;
+            font-weight: 200;
+            text-align: center;
+        }
+    }
+    .about-block {
+        background: $color-white;
+        padding-bottom: 40px;
+        text-align: left;
+        .img-wrapper {
+            margin-top: 20px;
+            img {
+                width: 100%;
+            }
+        }
+    }
+    .testimonial-block {
+        background: $color-neutral-darkest;
+        color: $color-neutral-light;
+        text-align: left;
+    }
+    .selling-block {
+        background: lighten($color-alt-lightest, 15%);
+        padding-bottom: 40px;
+        .icon-wrapper {
+            margin-bottom: 40px;
+            img {
+                width: 40%;
+            }
+        }
+        p {
+            margin-bottom: 40px;
+        }
+    }
+    .brand-block {
+        background: $color-white;
+        padding-top: 60px;
+        .icon-wrapper {
+            margin-bottom: 40px;
+            img {
+                width: 40%;
+                min-height: 150px;
+                @include grayscale();
+            }
+        }
+    }
+}
+
+#itsy-terms {
+    .title {
+        font-size: $title-font-size;
+        padding: 0;
+        margin-top: 0;
+        margin-bottom: 5px;
+    }
+    h2 {
+        font-size: 16px;
+    }
+}

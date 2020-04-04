@@ -1,0 +1,58 @@
+<div id='itsy-item' ng-class='$ctrl.isTile ? "col-sm-3" : "col-sm-12"'>
+    <div class='ribbon-wrapper'>
+        <div ng-if='$ctrl.item.isSold' class='ribbon sold'> Sold </div>
+        <div ng-if='!$ctrl.item.isPublished' class='ribbon draft'> Draft </div>
+        <div class='row'>
+            <div class='col-sm-4 col-md-3 m-b-md'> <a class='photo' ui-sref='listing.read({ id: $ctrl.item.slug })'> <img ng-src='{{$ctrl.item.photos[$ctrl.item.mainPhotoIndex]}}' alt=''> </a> </div>
+            <div class='col-sm-8 col-md-9'>
+                <h3 class='title'> <a ui-sref='listing.read({ id: $ctrl.item.slug })'>
+            <span ng-bind='$ctrl.item.brand'></span> <i class='ion-android-star'></i>
+            <span ng-bind='$ctrl.item.model'></span>
+          </a> </h3>
+                <h4 class='price'> <small ng-bind='$ctrl.item.currency'></small> <strong ng-bind='$ctrl.item.price | number'></strong> </h4>
+                <ul class='list-inline small'>
+                    <li ng-switch='$root.isAuthenticated && !$root.AuthService.isOwner($ctrl.item)'> <a ng-switch-when='true' ui-sref='profile.read({ id: $ctrl.item.profile._id })'> <i class='ion-person'></i>
+              <span ng-bind='$ctrl.item.profile.name'></span>
+            </a> <span ng-switch-when='false'> <i class='ion-person'></i>
+              <span ng-bind='$ctrl.item.profile.name'></span> </span>
+                    </li>
+                    <li ng-if='$root.AuthService.isOwner($ctrl.item)'> <span ng-if='$ctrl.item.isDeleted'> <strong class='text-danger'>
+                  Deleted
+                </strong> </span> <span ng-if='!$ctrl.item.isDeleted'>
+              <span ng-if='$ctrl.item.isSold'> <strong class='text-success'>
+                    Sold
+                  </strong> </span> <span ng-if='!$ctrl.item.isSold'> <strong class='text-warning' ng-if='!$ctrl.item.isPublished'>
+                    Draft
+                  </strong> <strong class='text-info' ng-if='$ctrl.item.isPublished'>
+                    Published
+                  </strong> </span> </span>
+                    </li>
+                    <li ng-if='$ctrl.item.yearOfManufacture'> <span class='hidden-xs' ng-bind='"Manufactured in " + $ctrl.item.yearOfManufacture'></span> <span class='visible-xs'><i class='ion-wrench'></i>
+              <span ng-bind='$ctrl.item.yearOfManufacture'></span> </span>
+                    </li>
+                    <li ng-if='$ctrl.item.hoursUsed'> <span ng-bind='($ctrl.item.hoursUsed | number) + " hours used"'></span> </li>
+                    <li> <i class='ion-ios-clock'></i> <span am-time-ago='$ctrl.item.dateModified'></span> </li>
+                </ul>
+                <p class='remarks hidden-xs text-muted'> <small ng-bind='($ctrl.item.remarks | limitTo:100) + " ..."'></small> </p>
+                <div class='buttons clearfix' ng-if='$root.AuthService.isOwner($ctrl.item) && !$ctrl.item.isDeleted'> <span class='pull-right' ng-switch='$ctrl.isPending'>
+            <div ng-switch-when='false'>
+              <span>
+                <a class='btn btn-danger btn-sm' ng-click='$ctrl.deleteListing($ctrl.item)'> <i class='ion-trash-a'></i> Delete </a>
+              </span> <span>
+                <a class='btn btn-warning btn-sm' ui-sref='listing.edit({ id: $ctrl.item.slug })'> <i class='ion-edit'></i> Edit </a>
+              </span> <span ng-if='!$ctrl.item.isPublished'>
+                <a class='btn btn-success btn-sm' ng-click='$ctrl.publishListing()'> <i class='ion-checkmark'></i> Publish </a>
+              </span> <span ng-if='$ctrl.item.isPublished && !$ctrl.item.isSold'>
+                <a class='btn btn-warning btn-sm' ng-click='$ctrl.unpublishListing()'> <i class='ion-close'></i> Unpublish </a>
+                <a class='btn btn-success btn-sm' ng-click='$ctrl.soldListing()'> <i class='ion-thumbsup'></i> Sold </a>
+              </span> <span ng-if='$ctrl.item.isSold'>
+                <a class='btn btn-warning btn-sm' ng-click='$ctrl.unsoldListing()'> <i class='ion-thumbsdown'></i> Unsold </a>
+              </span> </div>
+                <div ng-switch-when='true'>
+                    <spinner></spinner>
+                </div>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

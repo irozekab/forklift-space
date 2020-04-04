@@ -1,0 +1,94 @@
+<div id='itsy-listing-read'>
+
+    <section>
+        <breadcrumb crumbs='$ctrl.crumbs'></breadcrumb>
+    </section>
+
+    <section class='row'>
+
+        <section class='col-sm-5 m-b-md'>
+
+            <section>
+                <div ng-if='$ctrl.listing.photos.length > 0'>
+                    <photos class='photos' photos='$ctrl.listing.photos' photo-index='$ctrl.listing.mainPhotoIndex'></photos>
+                </div>
+            </section>
+
+            <section class='buttons' ng-if='$ctrl.isOwner'>
+                <div> <a class='btn btn-block btn-danger' ng-click='$ctrl.deleteListing()'> <i class='ion-trash-a'> </i> Delete </a> </div>
+                <div> <a class='btn btn-block btn-warning' ui-sref='listing.edit({ id: $ctrl.listing.slug })'> <i class='ion-edit'> </i> Edit </a> </div>
+                <div ng-if='!$ctrl.listing.isPublished'> <a class='btn btn-block btn-success' ng-click='$ctrl.publishListing()'> <i class='ion-checkmark'> </i> Publish </a> </div>
+                <div ng-if='$ctrl.listing.isPublished && !$ctrl.listing.isSold'> <a class='btn btn-block btn-warning' ng-if='$ctrl.listing.isPublished' ng-click='$ctrl.unpublishListing()'> <i class='ion-close'> </i> Unpublish </a> <a class='btn btn-success btn-block' ng-click='$ctrl.soldListing()'> <i class='ion-thumbsup'></i> Sold </a>                    </div>
+                <div ng-if='$ctrl.listing.isSold'> <a class='btn btn-warning btn-block' ng-click='$ctrl.unsoldListing()'> <i class='ion-thumbsdown'></i> Unsold </a> </div>
+            </section>
+        </section>
+
+        <section class='col-sm-7'>
+            <div class='ribbon-wrapper'>
+                <div ng-if='$ctrl.listing.isSold' class='ribbon sold'> Sold </div>
+                <div ng-if='!$ctrl.listing.isPublished' class='ribbon draft'> Draft </div>
+
+                <section>
+                    <h3 class='title'> <span ng-bind='$ctrl.listing.brand'></span> <i class='ion-android-star'></i> <span ng-bind='$ctrl.listing.model'></span> </h3>
+                    <p class='dateCreated'> Created <span am-time-ago='$ctrl.listing.dateCreated'></span> </p>
+                    <hr class='black' />
+                    <h2 class='price'> <small ng-bind='$ctrl.listing.currency'></small> <span ng-bind='$ctrl.listing.price'></span> </h2>
+                    <div class='row m-t-xl'>
+                        <div class='col-sm-6'>
+                            <dl> <dt>Status</dt>
+                                <dd> <span ng-if='$ctrl.listing.isDeleted'> <strong class='text-danger'>
+											Deleted
+										</strong> </span> <span ng-if='!$ctrl.listing.isDeleted'>
+                    <span ng-if='$ctrl.listing.isSold'> <strong class='text-success'>
+												Sold
+											</strong> </span> <span ng-if='!$ctrl.listing.isSold'> <strong class='text-warning' ng-if='!$ctrl.listing.isPublished'>
+												Draft
+											</strong> <strong class='text-info' ng-if='$ctrl.listing.isPublished'>
+												Published
+											</strong> </span> </span>
+                                </dd> <dt>Motor</dt>
+                                <dd class='text-capitalize' ng-bind='$ctrl.listing.motor'></dd> <dt>Truck</dt>
+                                <dd class='text-capitalize' ng-bind='$ctrl.listing.truck'></dd> <dt>Hours Used</dt>
+                                <dd> <span ng-if='$ctrl.listing.hoursUsed' ng-bind='($ctrl.listing.hoursUsed | number) + " hours"'></span> <span ng-if='!$ctrl.listing.hoursUsed'>-</span> </dd> <dt>Year of Manufacture</dt>
+                                <dd> <span ng-if='$ctrl.listing.yearOfManufacture' ng-bind='$ctrl.listing.yearOfManufacture'></span> <span ng-if='!$ctrl.listing.yearOfManufacture'>-</span> </dd> <dt>Serial Number</dt>
+                                <dd> <span ng-if='$ctrl.listing.serialNumber' ng-bind='$ctrl.listing.serialNumber'></span> </dd> <span ng-if='!$ctrl.listing.serialNumber'>-</span> </dl>
+                        </div>
+                        <div class='col-sm-6'>
+                            <dl> <dt>Rated Loading Capacity</dt>
+                                <dd> <span ng-if='$ctrl.listing.ratedLoadingCapacity' ng-bind='($ctrl.listing.ratedLoadingCapacity | number) + " ton"'></span> <span ng-if='!$ctrl.listing.ratedLoadingCapacity'>-</span> </dd> <dt>Mast Height</dt>
+                                <dd> <span ng-if='$ctrl.listing.mastHeight' ng-bind='($ctrl.listing.mastHeight | number) + " mm"'></span> <span ng-if='!$ctrl.listing.mastHeight'>-</span> </dd> <dt>Lifting Height</dt>
+                                <dd> <span ng-if='$ctrl.listing.liftingHeight' ng-bind='($ctrl.listing.liftingHeight | number) + " mm"'></span> <span ng-if='!$ctrl.listing.liftingHeight'>-</span> </dd> <dt>Fork Length</dt>
+                                <dd> <span ng-if='$ctrl.listing.forkLength' ng-bind='($ctrl.listing.forkLength | number) + " mm"'></span> <span ng-if='!$ctrl.listing.forkLength'>-</span> </dd> <dt>Side Shift</dt>
+                                <dd> <span class='text-capitalize' ng-if='$ctrl.listing.sideShift' ng-bind='$ctrl.listing.sideShift'></span> <span ng-if='!$ctrl.listing.sideShift'>-</span> </dd> <dt>Mast Stage</dt>
+                                <dd> <span class='text-capitalize' ng-if='$ctrl.listing.mastStage' ng-bind='$ctrl.listing.mastStage'></span> <span ng-if='!$ctrl.listing.mastStage'>-</span> </dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <dl> <dt>Remarks</dt>
+                        <dd>
+                            <p ng-bind='$ctrl.listing.remarks'></p>
+                            <p ng-if='!$ctrl.listing.remarks'>-</p>
+                        </dd>
+                    </dl>
+                </section>
+                <hr class='black' />
+
+                <section>
+                    <h4 class='m-b-md'>Seller's Detail</h4>
+                    <dl> <dt>Name</dt>
+                        <dd ng-switch='$root.isAuthenticated && !$root.AuthService.isOwner($ctrl.listing)'> <a ng-switch-when='true' ui-sref='profile.read({ id: $ctrl.listing.profile._id })'>
+                <span ng-bind='$ctrl.listing.profile.name'></span>
+              </a> <span ng-switch-when='false'>
+                <span ng-bind='$ctrl.listing.profile.name'></span> </span>
+                        </dd> <dt>Email</dt>
+                        <dd> <span ng-if='$ctrl.listing.profile.email'>
+                <span ng-switch='$root.AuthService.isOwner($ctrl.listing)'>
+                  <span ng-switch-when='true' ng-bind='$ctrl.listing.profile.email'></span> <a ng-switch-when='false' ng-href='mailto{{$ctrl.listing.profile.email}}' ng-bind='$ctrl.listing.profile.email'></a> </span>
+                            </span> <span ng-if='!$ctrl.listing.profile.email'>-</span> </dd> <dt>Contact Number</dt>
+                        <dd> <span ng-if='$ctrl.listing.profile.contactNumber' ng-bind='$ctrl.listing.profile.contactNumber'></span> <span ng-if='!$ctrl.listing.profile.contactNumber'>-</span> </dd>
+                    </dl>
+                </section>
+        </section>
+        </div>
+    </section>
+</div>

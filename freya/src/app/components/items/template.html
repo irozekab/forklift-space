@@ -1,0 +1,70 @@
+<div id='itsy-items'>
+
+    <section class='m-b-sm' ng-hide='$ctrl.hideSearch'>
+        <div class='form-group'>
+            <div class='input-group'> <input type='text' placeholder='Looking for something?' ng-model='q' on-enter='$ctrl.search(q); q = null' class='form-control'> <span class='input-group-btn'> <button ng-click='$ctrl.search(q); q = null' class='btn btn-primary'>
+          <i class='ion-ios-search-strong'></i> Search
+				</button> </span> </div>
+        </div>
+    </section>
+
+    <section class='m-b-lg'>
+        <div class='row m-b-sm' ng-hide='$ctrl.hideFilter'>
+            <div class='col-sm-5 col-md-4'> <a class='btn btn-primary btn-block m-b-sm' ng-click='$ctrl.toggleShowFilter()' ng-bind='$ctrl.showFilter ? "Hide Filters" : "Show Filters"'></a> </div>
+            <div class='col-sm-5 col-md-4' ng-hide='$ctrl.hideSort'>
+                <div class='btn-group' uib-dropdown> <button type='button' class='btn btn-default btn-block' uib-dropdown-toggle>
+        <span class='m-r-sm' ng-bind='$ctrl.sorts[$ctrl.query.sort].name'></span><span class='caret'></span>
+      </button>
+                    <ul class='dropdown-menu' uib-dropdown-menu>
+                        <li ng-repeat='sort in $ctrl.sorts'> <a class='text-center' ng-click='$ctrl.setSort(sort.value)' ng-bind='sort.name'></a> </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div uib-collapse='!$ctrl.showFilter'>
+            <div class='row'>
+                <div class='col-sm-4 col-xs-6'>
+                    <h6 class='m-t-lg m-b-md'>Brand</h6>
+                    <div class='form-group m-b-sm' ng-repeat='option in $ctrl.filters.brand.options'> <input class='form-control' type='checkbox' id='{{"brand_" + option}}' checklist-model='$ctrl.query.brand' checklist-value='option' /> <label for='{{"brand_" + option}}' class='text-capitalize' ng-bind='option'></label> </div>
+                </div>
+                <div class='col-sm-4 col-xs-6'>
+                    <h6 class='m-t-lg m-b-md'>Motor</h6>
+                    <div class='form-group m-b-sm' ng-repeat='option in $ctrl.filters.motor.options'> <input class='form-control' type='checkbox' id='{{"motor_" + option}}' checklist-model='$ctrl.query.motor' checklist-value='option' /> <label for='{{"motor_" + option}}' class='text-capitalize' ng-bind='option'></label> </div>
+                    <h6
+                        class='m-t-lg m-b-md'>Truck</h6>
+                        <div class='form-group m-b-sm' ng-repeat='option in $ctrl.filters.truck.options'> <input class='form-control' type='checkbox' id='{{"truck_" + option}}' checklist-model='$ctrl.query.truck' checklist-value='option' /> <label for='{{"truck_" + option}}' class='text-capitalize' ng-bind='option'></label> </div>
+                </div>
+                <div class='col-sm-4 col-xs-6'>
+                    <h6 class='m-t-lg m-b-md'>Side Shift</h6>
+                    <div class='form-group m-b-sm' ng-repeat='option in $ctrl.filters.sideShift.options'> <input class='form-control' type='checkbox' id='{{"sideShift_" + option}}' checklist-model='$ctrl.query.sideShift' checklist-value='option' /> <label for='{{"sideShift_" + option}}' class='text-capitalize' ng-bind='option'></label>                        </div>
+                    <h6 class='m-t-lg m-b-md'>Mast Stage</h6>
+                    <div class='form-group m-b-sm' ng-repeat='option in $ctrl.filters.mastStage.options'> <input class='form-control' type='checkbox' id='{{"mastStage_" + option}}' checklist-model='$ctrl.query.mastStage' checklist-value='option' /> <label for='{{"mastStage_" + option}}' class='text-capitalize' ng-bind='option'></label>                        </div>
+                </div>
+            </div>
+            <div class='clearfix'>
+                <div class='pull-right'> <a class='text-danger' ng-click='$ctrl.reset()'>RESET</a> <a class='m-l-md text-default' ng-click='$ctrl.toggleShowFilter()'>APPLY</a> </div>
+            </div>
+            <hr /> </div>
+        <div class='filters' uib-collapse='$ctrl.showFilter'> <strong class='title m-r-sm'>Filters:</strong> <span class='filter' ng-repeat='(key, values) in $ctrl.query' ng-if='values.length && ["search", "sort", "page", "perPage", "profile"].indexOf(key) == -1'>
+        <span><strong class='text-capitalize' ng-bind='key'></strong>: </span> <span ng-repeat='value in values'>
+          <span class='text-capitalize' ng-bind='value'></span> <span ng-if='!$last'>, </span> </span>
+            </span>
+        </div>
+    </section>
+
+    <section>
+        <h4 ng-if='$ctrl.query.search' class='searchResultsCount'> <strong ng-bind='$ctrl.totalItems'></strong> <small>result(s) found for</small> <span class='text-primary' ng-bind='"\"" + $ctrl.query.search + "\""'></span> <a class='m-l-sm small' ng-click='$ctrl.reset(); $ctrl.browseItems()'><i class='ion-close text-danger'></i></a>            </h4>
+    </section>
+
+    <section>
+        <pagination ng-if='$ctrl.totalItems' total-items='$ctrl.totalItems' on-change='$ctrl.browseItems' page='$ctrl.query.page' per-page='$ctrl.query.perPage'> </pagination>
+        <div ng-if='!$ctrl.isLoading'>
+            <p class='itemsNotAvailable' ng-if='$ctrl.items.length == 0'> <i>There are no items available.</i> </p>
+            <div class='row'>
+                <item class='animate' item='item' ng-repeat='item in $ctrl.items| filter:{ isDeleted: false }'></item>
+            </div>
+        </div>
+        <spinner ng-if='$ctrl.isLoading' size='xl'></spinner>
+        <pagination ng-if='$ctrl.totalItems' total-items='$ctrl.totalItems' on-change='$ctrl.browseItems' page='$ctrl.query.page' per-page='$ctrl.query.perPage'> </pagination>
+    </section>
+</div>

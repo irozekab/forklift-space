@@ -1,0 +1,8 @@
+<formly-transclude></formly-transclude>
+<div ng-messages='options.formControl.$error' ng-if='showError'>
+    <p class='itsy-error' ng-message='{{::name}}' ng-repeat='(name, message) in ::options.validation.messages'> {{message(options.formControl.$viewValue, options.formControl.$modelValue, this)}} </p>
+    <p class='itsy-error' ng-message='required'> This field is required. </p>
+    <p class='itsy-error' ng-message='email'> Please enter a valid email address. </p>
+    <p class='itsy-error' ng-message='min'> This value is too small. </p>
+    <p class='itsy-error' ng-message='max'> This value is too big. </p>
+</div>

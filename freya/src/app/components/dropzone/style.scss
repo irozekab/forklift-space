@@ -1,0 +1,64 @@
+@import '../../../style/_colors';
+@mixin transition($args...) {
+    -webkit-transition: $args;
+    -moz-transition: $args;
+    -ms-transition: $args;
+    -o-transition: $args;
+    transition: $args;
+}
+
+$dropzone-border: unset;
+$dropzone-background: $color-neutral-lighter;
+$dropzone-dragover-color: $color-white;
+$dropzone-dragover-background: $color-neutral-dark;
+$photo-margin-bottom: 5px;
+$thumb-img-width: 80px;
+$thumb-img-height: 60px;
+$btn-margin-top: 10px;
+#itsy-dropzone {
+    .dropzone {
+        border: $dropzone-border;
+        text-align: center;
+        background: $dropzone-background;
+        padding: 20px 0;
+        margin-bottom: 40px;
+        @include transition(all 0.5s ease);
+        h1 {
+            font-size: 16px;
+        }
+        p {
+            color: $color-neutral;
+        }
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    .dropzone-dragover {
+        background: $dropzone-dragover-background;
+        color: $dropzone-dragover-color;
+    }
+    .text-error {
+        color: $color-danger;
+        font-size: 0.9em;
+        margin-top: 3px;
+    }
+    ul.thumbs {
+        li {
+            padding-right: 0;
+            padding-bottom: 5px;
+            a.thumb {
+                img {
+                    width: $thumb-img-width;
+                    height: $thumb-img-height;
+                    object-fit: cover;
+                }
+            }
+            .btn {
+                border-radius: 50%;
+                padding: 6px 11px;
+                margin-left: 5px;
+                margin-top: $btn-margin-top;
+            }
+        }
+    }
+}

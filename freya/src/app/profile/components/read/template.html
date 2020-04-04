@@ -1,0 +1,33 @@
+<div id='itsy-profile-read'>
+
+    <section>
+        <breadcrumb crumbs='$ctrl.crumbs'></breadcrumb>
+    </section>
+
+    <section class='row'>
+
+        <section class='col-sm-4'>
+
+            <section>
+                <dl> <dt>Name</dt>
+                    <dd ng-bind='$ctrl.profile.name'></dd> <dt>Email</dt>
+                    <dd ng-switch='$ctrl.isMyProfile'> <span ng-switch-when='true' ng-bind='$ctrl.profile.email'></span> <a ng-switch-when='false' ng-href='mailto:{{$ctrl.profile.email}}' ng-bind='$ctrl.profile.email'></a> </dd> <dt>Phone</dt>
+                    <dd ng-bind='$ctrl.profile.contactNumber'></dd>
+                </dl>
+                <div ng-if='$ctrl.profile.remarks'>
+                    <hr />
+                    <p ng-bind='$ctrl.profile.remarks'></p>
+                </div>
+            </section>
+
+            <section class='buttons' ng-if='$ctrl.isMyProfile'>
+                <div> <a class='btn btn-block btn-warning' ui-sref='profile.edit'> <i class='ion-edit'> </i>Edit My Profile </a> </div>
+            </section>
+            <advertising></advertising>
+        </section>
+
+        <section class='col-sm-8'>
+            <items hide-search='true' query='$ctrl.query'></items>
+        </section>
+    </section>
+</div>

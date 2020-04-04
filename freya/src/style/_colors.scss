@@ -1,0 +1,124 @@
+$color-hero: #ff6638;
+$color-alt: #4a90a4;
+$color-white: #fff;
+$color-black: #000;
+$color-red: #e60000;
+$color-neutral: #9b9b9b;
+$color-pastel-red: #e43;
+$color-pastel-green: #a4eaa2;
+$color-pastel-yellow: #f0f0a2;
+$color-danger: $color-red;
+$color-neutral-lightest: lighten($color-neutral, 37%);
+$color-neutral-lighter: lighten($color-neutral, 30%);
+$color-neutral-light: lighten($color-neutral, 15%);
+$color-neutral-dark: darken($color-neutral, 15%);
+$color-neutral-darker: darken($color-neutral, 30%);
+$color-neutral-darkest: darken($color-neutral, 45%);
+$color-hero-lightest: lighten($color-hero, 30%);
+$color-hero-lighter: lighten($color-hero, 20%);
+$color-hero-light: lighten($color-hero, 10%);
+$color-hero-dark: darken($color-hero, 10%);
+$color-hero-darker: darken($color-hero, 18%);
+$color-hero-darkest: darken($color-hero, 25%);
+$color-alt-lightest: lighten($color-alt, 30%);
+$color-alt-lighter: lighten($color-alt, 20%);
+$color-alt-light: lighten($color-alt, 10%);
+$color-alt-dark: darken($color-alt, 10%);
+$color-alt-darker: darken($color-alt, 18%);
+$color-alt-darkest: darken($color-alt, 25%);
+@mixin color($color) {
+    background: $color;
+    background-color: $color;
+}
+
+.color-white {
+    @include color($color-white);
+}
+
+.color-black {
+    @include color($color-black);
+}
+
+.color-neutral-lightest {
+    @include color($color-neutral-lightest);
+}
+
+.color-neutral-lighter {
+    @include color($color-neutral-lighter);
+}
+
+.color-neutral-light {
+    @include color($color-neutral-light);
+}
+
+.color-neutral {
+    @include color($color-neutral);
+}
+
+.color-neutral-dark {
+    @include color($color-neutral-dark);
+}
+
+.color-neutral-darker {
+    @include color($color-neutral-darker);
+}
+
+.color-neutral-darkest {
+    @include color($color-neutral-darkest);
+}
+
+.color-hero-light {
+    @include color($color-hero-light);
+}
+
+.color-hero-lighter {
+    @include color($color-hero-lighter);
+}
+
+.color-hero-lightest {
+    @include color($color-hero-lightest);
+}
+
+.color-hero {
+    @include color($color-hero);
+}
+
+.color-hero-dark {
+    @include color($color-hero-dark);
+}
+
+.color-hero-darker {
+    @include color($color-hero-darker);
+}
+
+.color-hero-darkest {
+    @include color($color-hero-darkest);
+}
+
+.color-alt-light {
+    @include color($color-alt-light);
+}
+
+.color-alt-lighter {
+    @include color($color-alt-lighter);
+}
+
+.color-alt-lightest {
+    @include color($color-alt-lightest);
+}
+
+.color-alt {
+    @include color($color-alt);
+}
+
+.color-alt-dark {
+    @include color($color-alt-dark);
+}
+
+.color-alt-darker {
+    @include color($color-alt-darker);
+}
+
+.color-alt-darkest {
+    @include color($color-alt-darkest);
+}

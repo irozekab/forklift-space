@@ -1,0 +1,55 @@
+$foot-margin-top: 0px;
+$main-color: #ddd;
+$main-h1-color: #fff;
+$main-background: #141d1e;
+
+/*$main-padding: 56px 0px 31px 0px;*/
+
+$main-padding: 10px 0px 30px 0px;
+$secondary-color: #ddd;
+$secondary-background: #000;
+$secondary-padding: 14px 0;
+#itsy-foot {
+    margin-top: $foot-margin-top;
+    .main {
+        color: $main-color;
+        background: $main-background;
+        padding: $main-padding;
+        font-size: 13px;
+        font-weight: lighter;
+        h1 {
+            font-size: 14px;
+            margin: 45px 0 15px 0;
+            padding: 0;
+            color: $main-h1-color;
+            text-transform: uppercase;
+        }
+        .hr {
+            height: 2px;
+            width: 20px;
+            background: #fff;
+            margin-bottom: 15px;
+        }
+        ul.list-unstyled {
+            margin-top: 30px;
+            li {
+                margin-bottom: 14px;
+            }
+        }
+        a {
+            color: $main-color;
+            i {
+                margin-right: 5px;
+            }
+        }
+    }
+    .secondary {
+        padding: $secondary-padding;
+        color: $secondary-color;
+        background: $secondary-background;
+        font-size: 10px;
+        a {
+            color: $secondary-color;
+        }
+    }
+}

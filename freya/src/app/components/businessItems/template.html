@@ -1,0 +1,11 @@
+<div id='itsy-businessItems'>
+    <pagination ng-if='$ctrl.totalItems' total-items='$ctrl.totalItems' on-change='$ctrl.browseItems' page='$ctrl.page' per-page='$ctrl.perPage'> </pagination>
+    <div ng-if='!$ctrl.isLoading'>
+        <p class='itemsNotAvailable' ng-if='$ctrl.items.length == 0'> <i>There are no business available.</i> </p>
+        <div ng-repeat='item in $ctrl.items'>
+            <business-item model='item'></business-item>
+        </div>
+    </div>
+    <spinner ng-if='$ctrl.isLoading' size='xl'></spinner>
+    <pagination ng-if='$ctrl.totalItems' total-items='$ctrl.totalItems' on-change='$ctrl.browseItems' page='$ctrl.page' per-page='$ctrl.perPage'> </pagination>
+</div>

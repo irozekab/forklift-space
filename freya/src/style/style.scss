@@ -1,0 +1,61 @@
+@import './_helpers';
+@import './_colors';
+@import './_mixins';
+@import './forms';
+@import './animate';
+@import './ribbon';
+@import './bootstrap';
+@import './auth0';
+$header-font-family: 'Oswald';
+$body-font-family: 'Poppins';
+$border-radius: 0;
+$dropdown-border-radius: $border-radius;
+main.with_navbar {
+    padding-top: 80px;
+}
+
+hr.black {
+    background: $color-black;
+    height: 2px;
+    width: 20px;
+    margin-left: 0;
+    .hr-white {
+        background: $color-black;
+    }
+}
+
+.text-default {
+    color: $color-black;
+}
+
+// angular-toastr
+#toast-container {
+    .toast {
+        border-radius: $border-radius;
+    }
+}
+
+// flashing effect
+.flash {
+    -webkit-animation: flash 1s infinite linear;
+}
+
+@-webkit-keyframes flash {
+    0%,
+    100% {
+        @include opacity(1);
+    }
+    50% {
+        @include opacity(0);
+    }
+}
+
+@keyframes flash {
+    0%,
+    100% {
+        @include opacity(1);
+    }
+    50% {
+        @include opacity(0);
+    }
+}

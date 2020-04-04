@@ -1,0 +1,143 @@
+@import '../../../style/_colors';
+@import '../../../style/_mixins';
+$font-family: 'Poppins',
+sans-serif;
+$font-weight: 400;
+$height: 70px;
+$a-padding-top: ($height - 20px) / 2;
+$a-padding-bottom: ($height - 20px) / 2;
+$background-color: rgba(255, 255, 255, 0.95);
+$bottom-border: none;
+$font-size: 14px;
+$letter-spacing: 0.04em;
+$a-color: $color-black;
+$a-color-hover: $color-hero;
+$border: unset;
+$simple-background-color: rgba(0, 0, 0, 0.4);
+$bottom-border: none;
+$simple-a-color: $color-white;
+#itsy-navbar {
+    font-family: $font-family;
+    font-weight: $font-weight;
+    .navbar {
+        background-color: $background-color;
+        border-radius: 0;
+        border: $border;
+        .navbar-toggle {
+            color: $a-color;
+            border: $border;
+            margin-right: unset;
+            font-size: $font-size * 2;
+            @include transition(all 0.5s ease);
+            &:hover,
+            &:active,
+            &:focus {
+                background-color: unset;
+                color: $a-color-hover;
+            }
+        }
+        .navbar-brand {
+            border: none;
+            padding-top: 20px;
+            padding-bottom: 5px;
+            img {
+                height: 100%;
+            }
+        }
+        .navbar-form {
+            border: $border;
+            margin-top: $a-padding-top - 9px;
+        }
+        .navbar-collapse {
+            max-height: unset;
+            border: $border;
+            &.in {
+                overflow-y: unset;
+            }
+            .nav.navbar-nav {
+                li {
+                    a {
+                        padding-top: $a-padding-top;
+                        padding-bottom: $a-padding-bottom;
+                        font-size: $font-size;
+                        color: $a-color;
+                        letter-spacing: $letter-spacing;
+                        text-transform: uppercase;
+                        &:hover,
+                        &:active,
+                        &:focus {
+                            color: $a-color-hover;
+                            background: none !important;
+                        }
+                        &.btn {
+                            padding: 7px 10px 5px 10px;
+                            margin: 8px 15px 10px 15px;
+                            &:last-child {
+                                margin: 8px 0px 10px 15px;
+                            }
+                        }
+                    }
+                    &.open {
+                        a {
+                            background: none !important;
+                            &:hover,
+                            &:active,
+                            &:focus {
+                                color: $a-color-hover;
+                            }
+                        }
+                    }
+                }
+                .dropdown-menu {
+                    border: unset;
+                    li {
+                        margin-top: 15px;
+                        margin-bottom: 15px;
+                    }
+                    @include transition(all 0.5s ease);
+                }
+            }
+        }
+    }
+    &.simple {
+        .navbar {
+            background-color: $simple-background-color;
+            .navbar-toggle {
+                color: $simple-a-color;
+                margin-right: unset;
+                @include transition(all 0.5s ease);
+                &:hover,
+                &:active,
+                &:focus {
+                    color: $a-color-hover;
+                }
+            }
+            .navbar-form {
+                .toggle {
+                    color: $simple-a-color;
+                    &:hover,
+                    &:active,
+                    &:focus {
+                        color: $a-color-hover;
+                    }
+                }
+                .form-group {
+                    input {
+                        background: rgba(0, 0, 0, 0.7);
+                        color: $color-neutral-lighter;
+                    }
+                }
+            }
+        }
+        .navbar-collapse {
+            border-bottom: unset;
+            /*
+      &.in {
+      }
+      */
+            .nav.navbar-nav>li>a {
+                color: $simple-a-color;
+            }
+        }
+    }
+}
