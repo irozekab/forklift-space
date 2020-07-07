@@ -43,7 +43,7 @@
         "moment": "^2.11.1",
         "mongoose": "^4.7.0",
         "mongoose-findorcreate": "^0.1.2",
-        "npm": "^3.7.1",
+        "npm": "^6.14.6",
         "vision": "^4.0.1",
         "visionary": "^4.0.0"
     },
